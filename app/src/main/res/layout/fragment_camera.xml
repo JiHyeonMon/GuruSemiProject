@@ -8,15 +8,16 @@
     tools:context=".fragment.FragmentCamera">
 
     <ImageView
-        android:id="@+id/imgRenew"
+        android:id="@+id/imgCamera"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="8"
         android:src="@drawable/image2" />
 
     <Button
         android:id="@+id/btnImgRenew"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_height="0dp"
+        android:layout_weight="2"
         android:text="사진찍기" />
 </LinearLayout>

@@ -48,7 +48,6 @@ public class FragmentMember extends Fragment {
             public void onClick(View view) {
                 Intent ii = new Intent(getActivity(), LoginActivity.class);
                 startActivity(ii);
-
             }
         });
 

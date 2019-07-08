@@ -34,18 +34,19 @@ import java.util.Date;
 import static android.app.Activity.RESULT_OK;
 
 public class FragmentCamera extends Fragment {
-/*
+
     public String mPhotoPath="경로";
+
     private Uri mCaptureUri;
-    private Button btnCamera;
-    private ImageView imgRenew;
+    private Button btnImgRenew;
+    private ImageView imgCamera;
     public static final int REQUEST_IMAGE_CAPTURE = 200;
-*/
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_modify_camera, container, false);
-/*
+        View view = inflater.inflate(R.layout.fragment_camera, container, false);
+
         //카메라를 사용하기 위한 퍼미션을 요청한다.
         ActivityCompat.requestPermissions(getActivity(), new String[]{
                 Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -54,20 +55,20 @@ public class FragmentCamera extends Fragment {
         }, 0);
 
 
-        imgRenew = view.findViewById(R.id.imgRenew);
+        imgCamera = view.findViewById(R.id.imgCamera);
         //사진찍기 버튼
 
-        view.findViewById(R.id.btnCamera).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btnImgRenew).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 takePicture();
             }
         });
-*/
+
         return view;
     }
 
-    /*private void takePicture() {
+    private void takePicture() {
 
         Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
@@ -129,7 +130,7 @@ public class FragmentCamera extends Fragment {
             exifDegree = 0;
         }
         Bitmap rotatedBmp = roate(resizedBmp, exifDegree);
-        imgRenew.setImageBitmap( rotatedBmp );
+        imgCamera.setImageBitmap( rotatedBmp );
 
     }
 
@@ -180,5 +181,5 @@ public class FragmentCamera extends Fragment {
         }
     }
 
-*/
+
 }

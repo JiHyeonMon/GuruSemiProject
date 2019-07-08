@@ -115,7 +115,7 @@ public class FileDB {
             memoList = new ArrayList<>();
         }
         //고유 메모 아이디 생성해야한다.
-        memoBean.memoId = memoList.size() + 1;
+        memoBean.memoId = System.currentTimeMillis();
         memoList.add(memoBean);
 
         findMember.memoList = memoList;
@@ -130,8 +130,15 @@ public class FileDB {
 
     //delMemo
     public static void delMemo(Context context, String memId, int memoId){
+        //MemoBean findMemo = getFindMember(context, memoId);//메모 찾기
+        //return findMemo.
 
     }
+
+    //메모  찾기
+    public static void findMemo(Context context, String memId, MemberBean memberBean){
+    }
+
     //메모 리스트 취득
     public static List<MemoBean> getMemoList(Context context, String memId){
         MemberBean memberBean = getFindMember(context, memId);
@@ -143,5 +150,5 @@ public class FileDB {
             return memberBean.memoList;
         }
     }
-    
+
 }

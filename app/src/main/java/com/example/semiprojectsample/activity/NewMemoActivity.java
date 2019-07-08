@@ -10,9 +10,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.semiprojectsample.R;
+import com.example.semiprojectsample.bean.MemberBean;
+import com.example.semiprojectsample.bean.MemoBean;
+import com.example.semiprojectsample.db.FileDB;
 import com.example.semiprojectsample.fragment.FragmentCamera;
 import com.example.semiprojectsample.fragment.FragmentMember;
 import com.example.semiprojectsample.fragment.FragmentMemo;
@@ -25,6 +29,7 @@ public class NewMemoActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private  ViewPagerAdapter mViewPagerAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +111,7 @@ public class NewMemoActivity extends AppCompatActivity {
 
     //저장버튼 저장 처리
     private void saveProc(){
+        MemberBean memberBean = FileDB.getFindMember(this, memId);
 
         //1. 첫번째 fragment의 EditText값을 받아온다.
         FragmentMemoWrite f0 = (FragmentMemoWrite)mViewPagerAdapter.instantiateItem(mViewPager, 0);
@@ -115,10 +121,20 @@ public class NewMemoActivity extends AppCompatActivity {
         EditText edtWriteMemo = f0.getView().findViewById(R.id.edtWriteMemo);
         String memoStr = edtWriteMemo.getText().toString();
 
+        ImageView imgCamera = f1.getView().findViewById(R.id.imgCamera);
+
+        Log.e("aa", "photopath:  "+f1.mPhotoPath);
+
         String photoPath = f1.mPhotoPath;
+
+       // FileDB.addMemo(this, memId,  memoBean);
+        //필요한 인자 Context context, String memId, MemoBean memoBean
 
         Log.e("SEMI", "memoStr: "+ memoStr + ".photoPath: " + photoPath);
         Toast.makeText(this, "memoStr: " + memoStr + ".photoPath: " + photoPath, Toast.LENGTH_LONG).show();
+
+
+
 
     }
 
