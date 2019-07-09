@@ -9,23 +9,23 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.semiprojectsample.R;
 import com.example.semiprojectsample.activity.NewMemoActivity;
+import com.google.android.material.tabs.TabLayout;
 
 public class FragmentModifyWrite extends Fragment {
+
+    private TabLayout mTabLayout;
+    private ViewPager mViewPager;
+    private NewMemoActivity.ViewPagerAdapter mViewPagerAdapter;
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_modify_write, container, false);
-
-        view.findViewById(R.id.edtModifyMemo).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //메모 수정
-
-            }
-        });
 
         return view;
     }

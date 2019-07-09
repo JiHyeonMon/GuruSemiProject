@@ -9,10 +9,11 @@
 
     <ImageView
         android:id="@+id/imgCamera"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="8"
-        android:src="@drawable/image2" />
+        android:src="@drawable/image2"
+        android:scaleType="fitXY"/>
 
     <Button
         android:id="@+id/btnImgRenew"

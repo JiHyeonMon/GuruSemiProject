@@ -1,5 +1,7 @@
 package com.example.semiprojectsample.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -35,19 +37,31 @@ public class FragmentMember extends Fragment {
 
         //파일DB 에서 가져온다.
         MemberBean memberBean = FileDB.getLoginMember( getActivity() );
+        if(memberBean.photoPath != null){
+            imgProfile.setImageURI( Uri.fromFile(new File(memberBean.photoPath)) );
+        }
 
-        imgProfile.setImageURI( Uri.fromFile(new File(memberBean.photoPath)) );
         txtMemId.setText( "ID : "+memberBean.memId );
         txtMemName.setText( "이름 : " +memberBean.memName );
         txtMemPw.setText( "비밀번호 : " +memberBean.memPw );
         txtMemDate.setText( "가입 날짜 : " +memberBean.memRegDate );
 
-
         view.findViewById(R.id.btnLogout).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent ii = new Intent(getActivity(), LoginActivity.class);
-                startActivity(ii);
+                new AlertDialog.Builder(getActivity()).setTitle("로그아웃").setMessage("로그아웃 하시겠습니까?").setPositiveButton("로그아웃", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        Intent i = new Intent(getActivity(), LoginActivity.class);
+                        i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(i);
+                    }
+                })
+                        .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+
+                            }
+                        })
+                        .show();
             }
         });
 

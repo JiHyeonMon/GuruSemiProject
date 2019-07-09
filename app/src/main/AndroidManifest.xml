@@ -28,7 +28,6 @@
         <activity android:name=".activity.ModifyMemoActivity"></activity>
         <activity android:name=".activity.NewMemoActivity" />
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.JoinActivity" />
         <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
